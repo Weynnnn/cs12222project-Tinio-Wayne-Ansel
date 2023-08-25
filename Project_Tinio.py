@@ -6,9 +6,9 @@ from flet.auth.oauth_provider import OAuthProvider
 from flet.auth.authorization import Authorization
 import base64
 
-class Auth(Authorization):
+class MyAuthorization(Authorization):
     def __init__(self, *args, **kwargs):
-        super(Auth, self).__init__(*args, **kwargs)
+        super(MyAuthorization, self).__init__(*args, **kwargs)
 
     def _Auth__get_default_headers(self):
         usrnme = "vLUaxSmSRocOjgPvv-LsXg" 
@@ -39,7 +39,7 @@ class App:
 
         async def btn_on_click(enter):
             if base_auth_url_text.value == "":
-                await get_link(pr, Auth)
+                await get_link(pr, MyAuthorization)
             else:
                 await p.update_async()
 
@@ -233,7 +233,7 @@ class App:
             await on_login()
             
         async def get_link(provider, authorization):
-            await p.login_async(provider, authorization=Auth)
+            await p.login_async(provider, authorization=MyAuthorization)
             while not (p.auth and p.auth.token):
                 await p.update_async()
             await on_login()  
