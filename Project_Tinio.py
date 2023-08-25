@@ -28,7 +28,7 @@ class App:
             client_secret = "",
             auth_endpoint = f"{b}/api/v1/authorize.compact?duration=permanent",
             token_endpoint = f"{b}/api/v1/access_token",
-            redirect_url = "http://localhost/api/oauth/redirect",
+            redirect_url = "https://cs12222project-tinio-wayneansel.onrender.com/api/oauth/redirect",
             user_scopes = ['identity', 'read'])
         
 
