@@ -24,12 +24,12 @@ class App:
         p.title = "CS12 22.2 Project W.Tinio"
         b = 'https://www.reddit.com'
         pr = OAuthProvider(
-            client_id = "vLUaxSmSRocOjgPvv-LsXg",
-            client_secret = "",
-            auth_endpoint = f"{b}/api/v1/authorize.compact?duration=permanent",
-            token_endpoint = f"{b}/api/v1/access_token",
-            redirect_url = "https://cs12222project-tinio-wayneansel.onrender.com/api/oauth/redirect",
-            user_scopes = ['identity', 'read'])
+        client_id = "vLUaxSmSRocOjgPvv-LsXg",
+        client_secret = "",
+        auth_endpoint = f"{b}/api/v1/authorize.compact?duration=permanent",
+        token_endpoint = f"{b}/api/v1/access_token",
+        redirect_url = "https://cs12222project-tinio-wayneansel.onrender.com/api/oauth/redirect",
+        user_scopes = ['identity', 'read'])
         
 
         p.scroll = ft.ScrollMode.AUTO
