@@ -158,7 +158,7 @@ class App:
                             style=ft.ButtonStyle(color={"selected": ft.colors.ORANGE, "": ft.colors.BLACK})
                         )
 
-                        score_txt = ft.Text(str(score), color="WHITE")
+                        score_txt = ft.Text(str(score), color="BLACK")
 
                         lst_score_ctrls.append(score_txt)
                         lst_upvote_ctrls.append(upvote_btn)
