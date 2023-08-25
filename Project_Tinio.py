@@ -10,7 +10,7 @@ class MyAuthorization(Authorization):
     def __init__(self, *args, **kwargs):
         super(MyAuthorization, self).__init__(*args, **kwargs)
 
-    def _Auth__get_default_headers(self):
+    def _Authorization__get_default_headers(self):
         usrnme = "vLUaxSmSRocOjgPvv-LsXg" 
         encd = base64.b64encode(f'{usrnme}:'.encode('utf8')).decode('utf8')
         return {"User-Agent": f"Flet/0.6.2", "Authorization": f"Basic {encd}"}
@@ -22,12 +22,12 @@ class App:
 
     async def m(cls, p: ft.Page):
         p.title = "CS12 22.2 Project W.Tinio"
-        b = 'https://www.reddit.com'
-        pr = OAuthProvider(
+        base_auth_url = 'https://www.reddit.com'
+        provider = OAuthProvider(
         client_id = "vLUaxSmSRocOjgPvv-LsXg",
         client_secret = "",
-        authorization_endpoint = f"{b}/api/v1/authorize.compact?duration=permanent",
-        token_endpoint = f"{b}/api/v1/access_token",
+        authorization_endpoint = f"{base_auth_url}/api/v1/authorize.compact?duration=permanent",
+        token_endpoint = f"{base_auth_url}/api/v1/access_token",
         redirect_url = "https://cs12222project-tinio-wayneansel.onrender.com/api/oauth/redirect",
         user_scopes = ['identity', 'read'])
         
@@ -39,7 +39,7 @@ class App:
 
         async def btn_on_click(enter):
             if base_auth_url_text.value == "":
-                await get_link(pr, MyAuthorization)
+                await get_link(provider, MyAuthorization)
             else:
                 await p.update_async()
 
@@ -66,7 +66,7 @@ class App:
                     await p.update_async()
                     refresh_btn = ft.IconButton(
                         icon=ft.icons.REFRESH,
-                        icon_color="#f6edce",
+                        icon_color="gold",
                         icon_size=30,
                         tooltip="Refresh",
                         on_click=refresh
@@ -93,12 +93,12 @@ class App:
                         elem = lst_downvote_ctrls.index(event.control)
                         if lst_upvote_ctrls[elem].icon_color == 'orange':
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) - 2)
-                            lst_upvote_ctrls[elem].icon_color = '#f6edce'
+                            lst_upvote_ctrls[elem].icon_color = 'yellow'
                             lst_downvote_ctrls[elem].icon_color = 'blue'
 
                         elif lst_upvote_ctrls[elem].icon_color != 'orange' and lst_downvote_ctrls[elem].icon_color == 'blue':
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) + 1)
-                            lst_downvote_ctrls[elem].icon_color = '#f6edce'
+                            lst_downvote_ctrls[elem].icon_color = 'yellow'
 
                         else:
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) - 1)
@@ -112,11 +112,11 @@ class App:
                         elem = lst_upvote_ctrls.index(event.control)
                         if lst_upvote_ctrls[elem].icon_color == 'orange' and lst_downvote_ctrls[elem].icon_color != 'blue':
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) - 1)
-                            lst_upvote_ctrls[elem].icon_color = '#f6edce'
+                            lst_upvote_ctrls[elem].icon_color = 'yellow'
                         elif lst_downvote_ctrls[elem].icon_color == 'blue':
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) + 2)
                             lst_upvote_ctrls[elem].icon_color = 'orange'
-                            lst_downvote_ctrls[elem].icon_color = '#f6edce'
+                            lst_downvote_ctrls[elem].icon_color = 'yellow'
                         else:
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) + 1)
                             lst_upvote_ctrls[elem].icon_color = 'orange'
@@ -142,23 +142,23 @@ class App:
                         downvote_btn = ft.IconButton(
                             icon=ft.icons.ARROW_DOWNWARD,
                             icon_size=20,
-                            icon_color='#f6edce',
+                            icon_color='beige',
                             tooltip="Downvote",
                             on_click=downvote,
-                            style=ft.ButtonStyle(color={"selected": ft.colors.BLUE, "": ft.colors.BLACK})
+                            style=ft.ButtonStyle(color={"selected": ft.colors.BLUE, "": ft.colors.WHITE})
                         )
 
 
                         upvote_btn = ft.IconButton(
                             icon=ft.icons.ARROW_UPWARD,
                             icon_size=20,
-                            icon_color='#f6edce',
+                            icon_color='beige',
                             tooltip="Upvote",
                             on_click=upvote,
-                            style=ft.ButtonStyle(color={"selected": ft.colors.ORANGE, "": ft.colors.BLACK})
+                            style=ft.ButtonStyle(color={"selected": ft.colors.ORANGE, "": ft.colors.WHITE})
                         )
 
-                        score_txt = ft.Text(str(score), color="#f6edce")
+                        score_txt = ft.Text(str(score), color="beige")
 
                         lst_score_ctrls.append(score_txt)
                         lst_upvote_ctrls.append(upvote_btn)
