@@ -169,7 +169,7 @@ class App:
                                 [
                                     ft.Container(
                                         height=120,
-                                        bgcolor=ft.colors.MAROON,
+                                        bgcolor=ft.colors.YELLOW,
                                         expand=True,
                                         border_radius=20
                                     ),
@@ -199,7 +199,7 @@ class App:
                                     ),
 
                                     ft.Container(
-                                        content=ft.Text(f"{title}", no_wrap=True, color='WHITE'),
+                                        content=ft.Text(f"{title}", no_wrap=True, color='#000000'),
                                         alignment=ft.alignment.center,
                                         top=35,
                                         left=150,
@@ -207,7 +207,7 @@ class App:
                                     ),
                                     
                                     ft.Container(
-                                        content=ft.Text(f"{num_comments} comments {author} /r{subreddit}", color='WHITE'),
+                                        content=ft.Text(f"{num_comments} comments {author} /r{subreddit}", color='#000000'),
                                         alignment=ft.alignment.center,
                                         top=65,
                                         left=150,
