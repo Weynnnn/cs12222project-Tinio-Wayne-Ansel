@@ -93,12 +93,12 @@ class App:
                         elem = lst_downvote_ctrls.index(event.control)
                         if lst_upvote_ctrls[elem].icon_color == 'orange':
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) - 2)
-                            lst_upvote_ctrls[elem].icon_color = 'yellow'
+                            lst_upvote_ctrls[elem].icon_color = 'BLACK'
                             lst_downvote_ctrls[elem].icon_color = 'blue'
 
                         elif lst_upvote_ctrls[elem].icon_color != 'orange' and lst_downvote_ctrls[elem].icon_color == 'blue':
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) + 1)
-                            lst_downvote_ctrls[elem].icon_color = 'yellow'
+                            lst_downvote_ctrls[elem].icon_color = 'BLACK'
 
                         else:
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) - 1)
@@ -112,11 +112,11 @@ class App:
                         elem = lst_upvote_ctrls.index(event.control)
                         if lst_upvote_ctrls[elem].icon_color == 'orange' and lst_downvote_ctrls[elem].icon_color != 'blue':
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) - 1)
-                            lst_upvote_ctrls[elem].icon_color = 'yellow'
+                            lst_upvote_ctrls[elem].icon_color = 'BLACK'
                         elif lst_downvote_ctrls[elem].icon_color == 'blue':
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) + 2)
                             lst_upvote_ctrls[elem].icon_color = 'orange'
-                            lst_downvote_ctrls[elem].icon_color = 'yellow'
+                            lst_downvote_ctrls[elem].icon_color = 'BLACK'
                         else:
                             lst_score_ctrls[elem].value = str(int(lst_score_ctrls[elem].value) + 1)
                             lst_upvote_ctrls[elem].icon_color = 'orange'
@@ -142,20 +142,20 @@ class App:
                         downvote_btn = ft.IconButton(
                             icon=ft.icons.ARROW_DOWNWARD,
                             icon_size=20,
-                            icon_color='WHITE',
+                            icon_color='BLACK',
                             tooltip="Downvote",
                             on_click=downvote,
-                            style=ft.ButtonStyle(color={"selected": ft.colors.BLUE, "": ft.colors.WHITE})
+                            style=ft.ButtonStyle(color={"selected": ft.colors.BLUE, "": ft.colors.BLACK})
                         )
 
 
                         upvote_btn = ft.IconButton(
                             icon=ft.icons.ARROW_UPWARD,
                             icon_size=20,
-                            icon_color='WHITE',
+                            icon_color='BLACK',
                             tooltip="Upvote",
                             on_click=upvote,
-                            style=ft.ButtonStyle(color={"selected": ft.colors.ORANGE, "": ft.colors.WHITE})
+                            style=ft.ButtonStyle(color={"selected": ft.colors.ORANGE, "": ft.colors.BLACK})
                         )
 
                         score_txt = ft.Text(str(score), color="WHITE")
@@ -176,16 +176,16 @@ class App:
 
                                     ft.Container(
                                         upvote_btn,
-                                        left=60,
-                                        top=15,
+                                        left=50,
+                                        top=5,
                                         alignment=ft.alignment.center,
                                         expand=True
                                     ),
 
                                     ft.Container(
                                         score_txt,
-                                        left=70,
-                                        top=60,
+                                        left=65,
+                                        top=50,
                                         alignment=ft.alignment.center,
                                         expand=True
                                     ),
