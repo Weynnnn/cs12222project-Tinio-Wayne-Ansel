@@ -66,7 +66,7 @@ class App:
                     await p.update_async()
                     refresh_btn = ft.IconButton(
                         icon=ft.icons.REFRESH,
-                        icon_color="gold",
+                        icon_color="YELLOW",
                         icon_size=30,
                         tooltip="Refresh",
                         on_click=refresh
@@ -142,7 +142,7 @@ class App:
                         downvote_btn = ft.IconButton(
                             icon=ft.icons.ARROW_DOWNWARD,
                             icon_size=20,
-                            icon_color='beige',
+                            icon_color='WHITE',
                             tooltip="Downvote",
                             on_click=downvote,
                             style=ft.ButtonStyle(color={"selected": ft.colors.BLUE, "": ft.colors.WHITE})
@@ -152,13 +152,13 @@ class App:
                         upvote_btn = ft.IconButton(
                             icon=ft.icons.ARROW_UPWARD,
                             icon_size=20,
-                            icon_color='beige',
+                            icon_color='WHITE',
                             tooltip="Upvote",
                             on_click=upvote,
                             style=ft.ButtonStyle(color={"selected": ft.colors.ORANGE, "": ft.colors.WHITE})
                         )
 
-                        score_txt = ft.Text(str(score), color="beige")
+                        score_txt = ft.Text(str(score), color="WHITE")
 
                         lst_score_ctrls.append(score_txt)
                         lst_upvote_ctrls.append(upvote_btn)
@@ -169,7 +169,7 @@ class App:
                                 [
                                     ft.Container(
                                         height=120,
-                                        bgcolor=ft.colors.TORTILLA,
+                                        bgcolor=ft.colors.MAROON,
                                         expand=True,
                                         border_radius=20
                                     ),
@@ -199,7 +199,7 @@ class App:
                                     ),
 
                                     ft.Container(
-                                        content=ft.Text(f"{title}", no_wrap=True, color='#f6edce'),
+                                        content=ft.Text(f"{title}", no_wrap=True, color='WHITE'),
                                         alignment=ft.alignment.center,
                                         top=35,
                                         left=150,
@@ -207,7 +207,7 @@ class App:
                                     ),
                                     
                                     ft.Container(
-                                        content=ft.Text(f"{num_comments} comments {author} /r{subreddit}", color='#f6edce'),
+                                        content=ft.Text(f"{num_comments} comments {author} /r{subreddit}", color='WHITE'),
                                         alignment=ft.alignment.center,
                                         top=65,
                                         left=150,
